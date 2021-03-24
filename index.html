@@ -11,11 +11,37 @@
     <!-- link al mio css -->
     <link rel="stylesheet" href="master.css">
 
-    <title>Hello Vue</title>
+    <title>Vue Slider</title>
 </head>
 <body>
     
     <div id="root">
+        <div class="container">
+            <div class="slider">
+
+                <div class="prev" @click="indietro">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+        
+                <div class="slides">
+                    <div class="overlay">
+                    </div>
+                    <img :src="arrayImages[ind]">
+                </div>
+        
+                <div class="next" @click="avanti">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+    
+            </div>
+
+            <div class="dots">
+                <i v-for="dot in arrayImages.length"
+                class="fas fa-circle"
+                :class="(dot == ind + 1) ? 'active' : '' "
+                @click="questoDot(dot - 1)"></i>
+            </div>
+        </div>
         
     </div>
 
