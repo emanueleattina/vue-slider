@@ -10,28 +10,28 @@ var app = new Vue ({
             'imgs/image-4.jpg',
         ]
     },
+    created() {
+        setInterval(() => {
+            this.avanti();
+        }, 3000);
+    },
     methods: {
-        avanti: function() {
+        avanti() {
             if(this.ind < this.arrayImages.length - 1) {
                 this.ind++;
             } else {
                 this.ind = 0;
             }
         },
-        indietro: function() {
+        indietro() {
             if(this.ind > 0) {
                 this.ind--;
             } else {
                 this.ind = this.arrayImages.length - 1;
             }
         },
-        questoDot: function(ind) {
+        questoDot(ind) {
             this.ind = ind;
         },
-        timer: function () {
-            setTimeout(function () {
-                this.avanti();
-            }, 3000);
-        }
     }
-})
+});
